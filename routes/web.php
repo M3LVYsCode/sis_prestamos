@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\UsuarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +19,20 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/usuario', function () {
+/*Route::get('/usuario', function () {
     return view('usuario.index');
+});
+Route::get('/usuario', function () {
+  return view('usuario.create');
+});
+*/
+//Route::get('/categoria', function () {
+  //  return view('categoria.index');
+//});
+
+Route::resource('usuario',UsuarioController::class);
+Route::resource('categoria',CategoriaController::class);
+
+Route::get('dashboard',function (){
+  return View('layout.dashboard');
 });

@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\usuario;
 use App\Models\rol;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class UsuarioController extends Controller
+class RolController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -24,8 +23,7 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        $datos['roles']=rol::paginate(5);
-        return view('usuario.create',$datos);
+        //
     }
 
     /**
@@ -33,19 +31,13 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        $datosUsuario=request()->except('_token');
-
-        if($request->hasFile('Foto')){
-            $datosUsuario['Foto']=$request->file('Foto')->store('usuario_images','public');
-        }
-        usuario::insert();
-        return response()->json($datosUsuario);
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(usuario $usuario)
+    public function show(rol $rol)
     {
         //
     }
@@ -53,7 +45,7 @@ class UsuarioController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(usuario $usuario)
+    public function edit(rol $rol)
     {
         //
     }
@@ -61,7 +53,7 @@ class UsuarioController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, usuario $usuario)
+    public function update(Request $request, rol $rol)
     {
         //
     }
@@ -69,8 +61,7 @@ class UsuarioController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(usuario $usuario)
-    {
+    public function destroy(rol $rol){
         //
     }
 }
